@@ -81,7 +81,7 @@ Or you can create an individual file (txt, json, cfg...) just for Combiner decla
 
 ```
 
-Everytime you want to combine files you can use the Context Menu inside the Sublime Text editor window, access the Combiner command under Tools menu in Sublime Text or use the keyboard shortcut: `ctrl (super in MacOs X) + alt + q`
+Everytime you want to combine files you can use the Context Menu inside the Sublime Text editor window, access the Combiner command under Tools menu in Sublime Text or use the keyboard shortcut: `ctrl (super in MacOs X) + alt + c`
 
 <br><br>
 
