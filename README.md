@@ -5,7 +5,7 @@ Combine a list of CSS and/or Javascript files into a single one with Sublime Tex
 ## How to use
 Just place the following combiner declaration in any file:
 
-```css
+```
 /*
 Combiner:{
   "combine":"/path/to/file1.css",
@@ -18,7 +18,7 @@ Combiner:{
 
 Also you can include multiple Combiner declaration in the same file:
 
-```html
+```
 
 <!DOCTYPE html>
   <head>
@@ -86,10 +86,8 @@ Everytime you want to combine files you can use the Context Menu inside the Subl
 <br><br>
 
 ## Installation & Dependencies
-Download latest zip file from [here](https://github.com/bite-your-idols/Combiner/releases) and unzip it in your Sublime Text Packages folder.
+Open the Command Palette and select “Package Control: Install Package”. Search for “Combiner”.
 
-Windows: `%APPDATA%\Sublime Text 3\Packages\` | Mac OS X: `Support/Sublime\ Text\ 3/Packages/`
-  
 Combiner depends on [Concat](https://github.com/gko/concat) Node.js module to do its job, so right after installing this plugin you will need to install node and concat just as following:
 
 - Visit [nodejs.org](https://nodejs.org/), download file and install it. Then make sure that node is in your PATH, open up a shell window and execute `node --version`. You should see a version number.
