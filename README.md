@@ -90,6 +90,6 @@ Open the Command Palette and select “Package Control: Install Package”. Sear
 
 Combiner depends on [Concat](https://github.com/gko/concat) Node.js module to do its job, so right after installing this plugin you will need to install node and concat just as following:
 
-- Visit [nodejs.org](https://nodejs.org/), download file and install it. Then make sure that node is in your PATH, open up a shell window and execute `node --version`. You should see a version number.
+- Visit [nodejs.org](https://nodejs.org/), download file and install it. Then make sure that node is in your PATH, open up a shell window and execute `node --v`. You should see a version number.
   
-- From a shell window install concat npm module using the following command: `npm install -g concat`<br><br>
+- Then install concat npm module using the following command in the same shell window: `npm install -g concat`
