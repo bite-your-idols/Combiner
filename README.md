@@ -23,30 +23,30 @@ Also you can include multiple Combiner declaration in the same file:
 <!DOCTYPE html>
   <head>
     ...
-    <!-- CSS -->  
-    <!--
+    <!- CSS ->  
+    <!-
       Combiner:{
         "combine":"css/bootstrap.min.css",
         "combine":"css/global.min.css",
         "combine":"css/responsive.min.css",
         "output":"css/style.css"
       }
-    -->
+    ->
     <link rel="stylesheet" href="css/style.css">
     ...
   </head>
   <body>
     <h1>Hello, world!</h1>
     ...
-    <!-- JS -->
-    <!--
+    <!- JS ->
+    <!-
       Combiner:{
         "combine":"js/jquery-3.1.1.slim.min.js",
         "combine":"js/bootstrap.min.js",
         "combine":"js/global.js",
         "output":"js/scripts.js"
       }
-    -->
+    ->
     <script src=js/scripts.js"></script>
   </body>
 </html>
