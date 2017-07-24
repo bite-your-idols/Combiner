@@ -1,5 +1,5 @@
 # Combiner
-Combine a list of CSS and/or Javascript files into a single one with Sublime Text.
+Combine a list of local or remote CSS and/or Javascript files into a single one with Sublime Text.
 
 
 ## How to use
@@ -20,36 +20,34 @@ Also you can include multiple Combiner declaration in the same file:
 
 ```
 
-<!DOCTYPE html>
   <head>
     ...
-    <!- CSS ->  
-    <!-
+    <!-- CSS -->  
+    <!--
       Combiner:{
         "combine":"css/bootstrap.min.css",
         "combine":"css/global.min.css",
         "combine":"css/responsive.min.css",
         "output":"css/style.css"
       }
-    ->
+    -->
     <link rel="stylesheet" href="css/style.css">
     ...
   </head>
   <body>
     <h1>Hello, world!</h1>
     ...
-    <!- JS ->
-    <!-
+    <!-- JS -->
+    <!--
       Combiner:{
         "combine":"js/jquery-3.1.1.slim.min.js",
         "combine":"js/bootstrap.min.js",
         "combine":"js/global.js",
         "output":"js/scripts.js"
       }
-    ->
+    -->
     <script src=js/scripts.js"></script>
   </body>
-</html>
 
 ```
 
@@ -82,6 +80,45 @@ Or you can create an individual file (txt, json, cfg...) just for Combiner decla
 ```
 
 Everytime you want to combine files you can use the Context Menu inside the Sublime Text editor window, access the Combiner command under Tools menu in Sublime Text or use the keyboard shortcut: `ctrl (super in MacOs X) + shift + c`
+
+
+#### Remote Files
+
+You can get remote files and combine then in just one local file, only restriction is you have to declare in the same block the same type of files (remote or local)
+
+```json
+{ 
+  "Combiner_CSS_CDN":{
+    "combine":"https://remote/path/to/file1.css",
+    "combine":"https://remote/path/to/file2.css",
+    "combine":"https://remote/path/to/file3.css",
+    "output":"/local/path/to/output.file.css"
+  },
+
+  "Combiner_CSS":{
+    "combine":"/path/to/file1.css",
+    "combine":"/path/to/file2.css",
+    "combine":"/path/to/file3.css",
+    "output":"/path/to/output.file.css"
+  },
+
+  "Combiner_JS_LIBS":{
+    "combine":"https://remote/path/to/file1.js",
+    "combine":"https://remote/path/to/file1.js",
+    "combine":"https://remote/path/to/file1.js",
+    "output":"/local/path/to/output.file.js"
+  },
+  
+  "Combiner_JS":{
+    "combine":"/path/to/file1.js",
+    "combine":"/path/to/file2.js",
+    "combine":"/path/to/file3.js",
+    "output":"/path/to/output.file.js"
+  }
+}
+
+```
+
 
 <br><br>
 
