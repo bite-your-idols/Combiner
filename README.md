@@ -1,4 +1,4 @@
-# Combiner
+# Combiner 🎯
 Combine a list of local or remote CSS and/or Javascript files into a single one with Sublime Text.
 
 
