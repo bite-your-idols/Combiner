@@ -53,7 +53,7 @@ Also you can include multiple Combiner declaration in the same file:
 
 Or you can create an individual file (txt, json, cfg...) just for Combiner declarations:
 
-```json
+```
 {
   "Combiner_CSS":{
     combine:"/path/to/file1.css",
@@ -86,7 +86,7 @@ Everytime you want to combine files you can use the Context Menu inside the Subl
 
 You can get remote files and combine then in just one local file, only restriction is you have to declare in the same block the same type of files (remote or local)
 
-```json
+```
 { 
   "Combiner_CSS_CDN":{
     combine:"https://remote/path/to/file1.css",
