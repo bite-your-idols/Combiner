@@ -119,6 +119,24 @@ You can get remote files and combine then in just one local file, only restricti
 
 ```
 
+Or even you can use it just to download only a single remote file
+
+```
+{ 
+  "Combiner_CSS":{
+    combine:"https://remote/path/to/file1.css",
+    output:"/local/path/to/output.file.css"
+  },
+
+  "Combiner_JS_LIBS":{
+    combine:"https://remote/path/to/file1.js",
+    output:"/local/path/to/output.file.js"
+  }
+}
+
+```
+
+
 
 <br><br>
 

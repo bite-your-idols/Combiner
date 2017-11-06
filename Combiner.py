@@ -17,7 +17,7 @@ class CombinerCommand(sublime_plugin.TextCommand):
 
 
         # path='W:/XAMPP/htdocs/OnClick/WORKS/Ubisoft/ACO/ACO - Foto/web/'
-        print (path)
+        # print (path)
         # print (file_name)
         # print (full_name)
         # print (archive_output)
@@ -51,7 +51,7 @@ class CombinerCommand(sublime_plugin.TextCommand):
                 temp_name =sublime.Region(m.start(), m.end())
                 temp_name = self.view.substr(temp_name)
                 temp_name= m.group(1)
-                print(temp_name)
+                # print(temp_name)
                 # archive_list=archive_list+" "+path+temp_name
 
 
@@ -72,7 +72,7 @@ class CombinerCommand(sublime_plugin.TextCommand):
                     f = open(path+temp_name)
                     content = f.read()
                     temp_content=temp_content+"\n"+content
-                    print(content)
+                    # print(content)
 
             #---
             # cogemos el archivo de destino
@@ -107,6 +107,13 @@ class CombinerCommand(sublime_plugin.TextCommand):
                 # new_view.end_edit(edit)
                 # new_view.run_command("save")
                 # window.run_command("build")
+
+            # si no existe esa carpeta que la cree
+            from os.path import dirname
+            # print (dirname(archive_output))
+            carpetas=dirname(archive_output)
+            if not os.path.exists(carpetas):
+                os.makedirs(carpetas)
 
             file = open(archive_output, 'w')
             file.write(temp_content)
