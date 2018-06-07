@@ -2,9 +2,16 @@
 	"caption": "Tools",
 	"mnemonic": "T",
 	"id": "tools",
-	"children": [{
-		"id": "combiner",
-		"caption": "Combiner",
-		"command": "combiner" 
-	}]
+	"children": [
+		{
+			"id": "combiner",
+			"caption": "Combiner> Combine",
+			"command": "combiner" 
+		},
+		{
+			"id": "combinerMin",
+			"caption": "Combiner> Minify",
+			"command": "minify" 
+		},
+	]
 }]

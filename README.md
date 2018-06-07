@@ -1,5 +1,5 @@
 # Combiner
-Combine a list of local or remote CSS and/or Javascript files into a single one with Sublime Text.
+Combine a list of local or remote CSS and/or Javascript files into a single one with Sublime Text. Now, it can also minify CSS, Javascript and/or HTML files using online minifiers.
 
 
 ## How to use
@@ -8,10 +8,10 @@ Just place the following combiner declaration in any file:
 ```
 /*
 Combiner:{
-  "combine":"/path/to/file1.css",
-  "combine":"/path/to/file2.css",
-  "combine":"/path/to/file3.css",
-  "output":"/path/to/output.file.css"
+  combine:"/path/to/file1.css",
+  combine:"/path/to/file2.css",
+  combine:"/path/to/file3.css",
+  output:"/path/to/output.file.css"
 }
 */
 ```
@@ -25,10 +25,10 @@ Also you can include multiple Combiner declaration in the same file:
     <!-- CSS -->  
     <!--
       Combiner:{
-        "combine":"css/bootstrap.min.css",
-        "combine":"css/global.min.css",
-        "combine":"css/responsive.min.css",
-        "output":"css/style.css"
+        combine:"css/bootstrap.min.css",
+        combine:"css/global.min.css",
+        combine:"css/responsive.min.css",
+        output:"css/style.css"
       }
     -->
     <link rel="stylesheet" href="css/style.css">
@@ -40,10 +40,10 @@ Also you can include multiple Combiner declaration in the same file:
     <!-- JS -->
     <!--
       Combiner:{
-        "combine":"js/jquery-3.1.1.slim.min.js",
-        "combine":"js/bootstrap.min.js",
-        "combine":"js/global.js",
-        "output":"js/scripts.js"
+        combine:"js/jquery-3.1.1.slim.min.js",
+        combine:"js/bootstrap.min.js",
+        combine:"js/global.js",
+        output:"js/scripts.js"
       }
     -->
     <script src=js/scripts.js"></script>
@@ -53,80 +53,98 @@ Also you can include multiple Combiner declaration in the same file:
 
 Or you can create an individual file (txt, json, cfg...) just for Combiner declarations:
 
-```json
+```
 {
   "Combiner_CSS":{
-    "combine":"/path/to/file1.css",
-    "combine":"/path/to/file2.css",
-    "combine":"/path/to/file3.css",
-    "output":"/path/to/output.file.css"
+    combine:"/path/to/file1.css",
+    combine:"/path/to/file2.css",
+    combine:"/path/to/file3.css",
+    output:"/path/to/output.file.css"
   },
   
   "Combiner_JS":{
-    "combine":"/path/to/file1.js",
-    "combine":"/path/to/file2.js",
-    "combine":"/path/to/file3.js",
-    "output":"/path/to/output.file.js"
+    combine:"/path/to/file1.js",
+    combine:"/path/to/file2.js",
+    combine:"/path/to/file3.js",
+    output:"/path/to/output.file.js"
   },
   
   "Combiner_LIB":{
-    "combine":"/path/to/file1.js",
-    "combine":"/path/to/file2.js",
-    "combine":"/path/to/file3.js",
-    "output":"/path/to/output.file.js"
+    combine:"/path/to/file1.js",
+    combine:"/path/to/file2.js",
+    combine:"/path/to/file3.js",
+    output:"/path/to/output.file.js"
   }
 }
 
 ```
 
-Everytime you want to combine files you can use the Context Menu inside the Sublime Text editor window, access the Combiner command under Tools menu in Sublime Text or use the keyboard shortcut: `ctrl (super in MacOs X) + shift + c`
+Everytime you want to combine files you can use the Context Menu inside the Sublime Text editor window, access the Combiner command under Tools menu in Sublime Text or use the keyboard shortcut: `ctrl (super in MacOs X) + alt + c`
 
 
 #### Remote Files
 
 You can get remote files and combine then in just one local file, only restriction is you have to declare in the same block the same type of files (remote or local)
 
-```json
+```
 { 
   "Combiner_CSS_CDN":{
-    "combine":"https://remote/path/to/file1.css",
-    "combine":"https://remote/path/to/file2.css",
-    "combine":"https://remote/path/to/file3.css",
-    "output":"/local/path/to/output.file.css"
+    combine:"https://remote/path/to/file1.css",
+    combine:"https://remote/path/to/file2.css",
+    combine:"https://remote/path/to/file3.css",
+    output:"/local/path/to/output.file.css"
   },
 
   "Combiner_CSS":{
-    "combine":"/path/to/file1.css",
-    "combine":"/path/to/file2.css",
-    "combine":"/path/to/file3.css",
-    "output":"/path/to/output.file.css"
+    combine:"/path/to/file1.css",
+    combine:"/path/to/file2.css",
+    combine:"/path/to/file3.css",
+    output:"/path/to/output.file.css"
   },
 
   "Combiner_JS_LIBS":{
-    "combine":"https://remote/path/to/file1.js",
-    "combine":"https://remote/path/to/file1.js",
-    "combine":"https://remote/path/to/file1.js",
-    "output":"/local/path/to/output.file.js"
+    combine:"https://remote/path/to/file1.js",
+    combine:"https://remote/path/to/file1.js",
+    combine:"https://remote/path/to/file1.js",
+    output:"/local/path/to/output.file.js"
   },
   
   "Combiner_JS":{
-    "combine":"/path/to/file1.js",
-    "combine":"/path/to/file2.js",
-    "combine":"/path/to/file3.js",
-    "output":"/path/to/output.file.js"
+    combine:"/path/to/file1.js",
+    combine:"/path/to/file2.js",
+    combine:"/path/to/file3.js",
+    output:"/path/to/output.file.js"
   }
 }
 
 ```
 
+Or even you can use it just to download only a single remote file
+
+```
+{ 
+  "Combiner_CSS":{
+    combine:"https://remote/path/to/file1.css",
+    output:"/local/path/to/output.file.css"
+  },
+
+  "Combiner_JS_LIBS":{
+    combine:"https://remote/path/to/file1.js",
+    output:"/local/path/to/output.file.js"
+  }
+}
+
+```
+
+#### Minimize
+
+Also, you can minimize the combined file (or the files you want) using online minifiers created by [@andychilton](https://twitter.com/andychilton). You just need to use the Context Menu inside the Sublime Text editor window, access the Combiner command under Tools menu in Sublime Text or use the keyboard shortcut: `ctrl (super in MacOs X) + alt + m`. A new file will be created in the same location of the open one, with the same name adding suffix `min`. You need internet connection to use minification features.
+
+- For HTML files [HTML-Minifier](https://html-minifier.com/) is used.
+- For Javascript files [Javascript-Minifier](https://javascript-minifier.com) is used.
+- For CSS files [CSS-Minifier](https://cssminifier.com/) is used.
 
 <br><br>
 
-## Installation & Dependencies
+## Installation
 Open the Command Palette and select “Package Control: Install Package”. Search for “Combiner”.
-
-Combiner depends on [Concat](https://github.com/gko/concat) Node.js module to do its job, so right after installing this plugin you will need to install node and concat just as following:
-
-- Visit [nodejs.org](https://nodejs.org/), download file and install it. Then make sure that node is in your PATH, open up a shell window and execute `node --v`. You should see a version number.
-  
-- Then install concat npm module using the following command in the same shell window: `npm install -g concat`

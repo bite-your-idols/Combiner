@@ -1,3 +1,4 @@
 [
-  {"keys": ["super+shift+c"], "command": "combiner"}
+  {"keys": ["super+alt+c"], "command": "combiner"},
+  {"keys": ["super+alt+m"], "command": "minify"}
 ]

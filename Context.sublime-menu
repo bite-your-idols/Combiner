@@ -1,5 +1,14 @@
-[{
-	"id": "combinermenu",
-	"caption": "Combiner",
-	"command": "combiner"
-}]
+[
+	{
+		"id": "combinermenu",
+		"caption": "Combiner > Combine",
+		"command": "combiner"
+	},
+
+	{
+		"id": "combinermenu",
+		"caption": "Combiner > Minify",
+		"command": "minify"
+	}
+
+]
