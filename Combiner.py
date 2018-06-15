@@ -1,4 +1,4 @@
-import sublime, sublime_plugin, re, os, subprocess, urllib.request, urllib.parse
+import sublime, sublime_plugin, re, os, subprocess, urllib.request, urllib.parse, io
 
 
 class CombinerCommand(sublime_plugin.TextCommand):
@@ -157,18 +157,69 @@ class MinifyCommand(sublime_plugin.TextCommand):
         else:
             print ("no compatible file")
 
+        # cogemos los datos de nuestro archivo seleccionado/abierto
         data = {'input': open(full_name, 'rb').read()}
         data = bytes( urllib.parse.urlencode( data ).encode("utf-8") )
 
-
+        #llamamos a la url y le pasamos los datos del archivo
         handler = urllib.request.urlopen( url, data );
+        temp_content = handler.read().decode("utf-8")
 
-        temp_content = handler.read().decode('utf-8')
+        # definimos el nombre y metemos el contenido devuelto dentro del archivo
         archive_output = file_name + '.min.' + extension
-        
-        file = open(archive_output, 'w')
+
+
+        # file = open(archive_output, 'w')
+        # file.write(temp_content)
+        # file.close()
+
+
+        file = io.open(archive_output, 'w',encoding='utf8')
         file.write(temp_content)
         file.close()
 
+
+
+        # with io.open(archive_output,'r') as f:
+            # text = f.read()
+        # process Unicode text
+        # with io.open(archive_output,'w',encoding='utf8') as f:
+            # f.write(text)
+
+
+
         # despues abrimos el archivo generado
         sublime.active_window().open_file(archive_output)
+        
+        # set_encoding("utf-8")
+
+
+# class EventListener(sublime_plugin.EventListener):
+        # def on_load ( file, view ):
+        #     # print("--> "+archive_output)
+        #     print("--> "+view.file_name())
+
+        #     # print("CUALTIENE?")
+        #     codificacion=view.encoding()
+        #     # if(codificacion=="Western (Windows 1252)")
+        #     print("CUALTIENE? " + codificacion)
+
+            # print("METEMOS EL UTF-8")
+            # view.set_encoding("utf-8")
+            # view.run_command("save")
+
+
+
+
+
+        # fileExtension = view.window().extract_variables() [ "file_extension" ]
+
+        # encodingSets = \
+        #     {
+        #         "log"  : "Hexadecimal",
+        #         "dump" : "Hexadecimal",
+        #     }
+
+        # if fileExtension in encodingSets:
+        #     encoding = encodingSets[ fileExtension ]
+        #     view.run_command ( "reopen", { "encoding" : encoding } )
