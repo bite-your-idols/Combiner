@@ -124,7 +124,7 @@ class CombinerCommand(sublime_plugin.TextCommand):
 
 class MinifyCommand(sublime_plugin.TextCommand):
     def run(self, edit):
-        print ("Combiner > Minify")
+        print ("Combiner > Minify updated?")
 
         # ---
         # definimos variables iniciales -> igual que en la funcion de arriba
@@ -147,13 +147,13 @@ class MinifyCommand(sublime_plugin.TextCommand):
         
         # if extension == "js":
         if extension == "js":
-            url = 'https://javascript-minifier.com/raw'
+            url = 'https://www.toptal.com/developers/javascript-minifier/raw'
         elif extension == "css":
-            url = 'https://cssminifier.com/raw'
+            url = 'https://www.toptal.com/developers/cssminifier/raw'
         elif extension == "html":
-            url = 'https://html-minifier.com/raw'
+            url = 'https://www.toptal.com/developers/html-minifier/raw'
         elif extension == "htm":
-            url = 'https://html-minifier.com/raw'
+            url = 'https://www.toptal.com/developers/html-minifier/raw'
         else:
             print ("no compatible file")
 
@@ -162,8 +162,20 @@ class MinifyCommand(sublime_plugin.TextCommand):
         data = bytes( urllib.parse.urlencode( data ).encode("utf-8") )
 
         #llamamos a la url y le pasamos los datos del archivo
-        handler = urllib.request.urlopen( url, data );
+        # handler = urllib.request.urlopen( url, data ); # esta linea de error
+
+
+        user_agent = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.7) Gecko/2009021910 Firefox/3.0.7'
+        headers={'User-Agent':user_agent,} 
+        request=urllib.request.Request(url,None,headers) #The assembled request
+        handler = urllib.request.urlopen(request,data)
+        # data = response.read() # The data u need
+
+
+        #a partir de aqui estaria igual
         temp_content = handler.read().decode("utf-8")
+
+
 
         # definimos el nombre y metemos el contenido devuelto dentro del archivo
         archive_output = file_name + '.min.' + extension
